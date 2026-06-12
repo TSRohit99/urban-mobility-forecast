@@ -1,0 +1,41 @@
+Urban Mobility Demand Forecasting — Model Comparison Report
+Generated: 2026-06-02T20:14:30
+
+## 1-step forecasting (original scale)
++---------------------------------------------+-------------+-------------------+------+----------+----------+--------+---------+---------+
+| model                                       | task        | split             | n    | rmse     | mae      | r2     | mape    | smape   |
++=============================================+=============+===================+======+==========+==========+========+=========+=========+
+| cnn_lstm_offpeak_specialist__raw_weather    | 1step       | test_offpeak_only | 865  | 232.0802 | 177.2194 | 0.7043 | 68.7294 | 34.1189 |
+| cnn_lstm_tuned__raw_weather                 | 1step_tuned | test              | 1222 | 254.2791 | 178.8955 | 0.7809 | 54.6566 | 28.5813 |
+| cnn_lstm__raw_weather                       | 1step       | test              | 1222 | 263.9643 | 190.1481 | 0.7638 | 60.4808 | 30.4569 |
+| cnn_lstm_offpeak_specialist__severity_index | 1step       | test_offpeak_only | 865  | 266.9054 | 195.9130 | 0.6088 | 62.7708 | 34.1058 |
+| cnn_lstm_attention__raw_weather             | 1step       | test              | 1222 | 286.5673 | 207.7858 | 0.7217 | 50.7687 | 32.9552 |
+| vanilla_lstm__severity_index                | 1step       | test              | 1222 | 294.0684 | 220.3585 | 0.7069 | 63.6164 | 33.7529 |
+| bilstm__raw_weather                         | 1step       | test              | 1222 | 294.0753 | 202.4318 | 0.7069 | 56.7678 | 30.5250 |
+| vanilla_lstm__raw_weather                   | 1step       | test              | 1222 | 303.0106 | 215.2915 | 0.6888 | 57.2874 | 32.2887 |
+| bilstm__severity_index                      | 1step       | test              | 1222 | 304.6333 | 220.2233 | 0.6855 | 56.1657 | 32.0884 |
+| cnn_lstm__severity_index                    | 1step       | test              | 1222 | 306.4491 | 216.5167 | 0.6817 | 58.6620 | 32.5568 |
+| cnn_lstm_peak_specialist__raw_weather       | 1step       | test_peak_only    | 357  | 337.0829 | 249.9221 | 0.6681 | 48.1414 | 24.8397 |
+| cnn_lstm_peak_specialist__severity_index    | 1step       | test_peak_only    | 357  | 399.5488 | 303.0654 | 0.5336 | 43.4252 | 29.9462 |
+| cnn_lstm__raw_weather                       | 1step       | val               | 1220 | 290.6286 | 215.8791 | 0.8005 | 73.3819 | 32.0687 |
+| cnn_lstm__severity_index                    | 1step       | val               | 1220 | 312.8682 | 232.2066 | 0.7687 | 82.3591 | 33.7820 |
+| bilstm__severity_index                      | 1step       | val               | 1220 | 315.4571 | 237.0194 | 0.7649 | 80.3125 | 32.3700 |
+| bilstm__raw_weather                         | 1step       | val               | 1220 | 319.3407 | 232.0270 | 0.7591 | 78.8439 | 32.9935 |
+| vanilla_lstm__severity_index                | 1step       | val               | 1220 | 324.7404 | 245.5932 | 0.7509 | 94.8183 | 34.3192 |
+| vanilla_lstm__raw_weather                   | 1step       | val               | 1220 | 324.8490 | 241.6503 | 0.7507 | 78.0756 | 34.6872 |
++---------------------------------------------+-------------+-------------------+------+----------+----------+--------+---------+---------+
+
+## 24-step forecasting
+Model: encdec_lstm_24step__raw_weather
+Overall RMSE (all horizons flattened): 359.7014
+Overall MAE (flattened): 250.0758
+Overall R² (flattened): 0.5617
+RMSE by horizon (1..24):
+335.9851, 345.8253, 346.7503, 346.6816, 347.4819, 348.4505, 348.5404, 349.7771, 355.1176, 365.1629, 372.3575, 373.7458, 370.9897, 368.0369, 366.3041, 365.1836, 364.7450, 364.1955, 364.0063, 364.0530, 364.8470, 365.0378, 365.2812, 370.7174
+
+## Notes
+- This is a regression task (predicting continuous bike counts), not classification. There is no "accuracy" in the sense of % correct labels; use RMSE/MAE for error and R² for explained variance.
+- R² closer to 1.0 means the model explains more of the variance in demand on that split; it can go negative if the model is worse than predicting the mean.
+- All metrics are computed after inverse-scaling predictions back to the original bike-count scale.
+- MAPE can be unstable near zero counts; sMAPE is included as a more robust alternative.
+- Peak/off-peak specialist results are evaluated only on their respective test subsets.
