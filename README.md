@@ -1,6 +1,10 @@
 # Urban Mobility Forecasting
 
+[![Open in Hugging Face Spaces](https://huggingface.co/datasets/huggingface/badges/resolve/main/open-in-hf-spaces-sm.svg)](https://huggingface.co/spaces/tsrohit99/seoul-bike-demand)
+
 Deep learning models for **hourly bike-sharing demand prediction** using the Seoul public bike dataset (2017–2018). The project compares recurrent and hybrid architectures for **next-hour (1-step)** and **24-hour-ahead (multi-step)** forecasting under a strict chronological evaluation protocol.
+
+**Live demo:** [Hugging Face Space — Seoul Bike Demand Forecast](https://huggingface.co/spaces/tsrohit99/seoul-bike-demand) — interactive 1-hour and 24-hour predictions (no local setup required).
 
 ---
 
@@ -111,6 +115,10 @@ source .venv/bin/activate   # Windows: .venv\Scripts\activate
 
 pip install -r requirements.txt
 ```
+
+### Try the live demo (recommended)
+
+Open the [Hugging Face Space](https://huggingface.co/spaces/tsrohit99/seoul-bike-demand) to explore pre-trained **1-hour** and **24-hour** forecasts without installing dependencies locally.
 
 ### Run the notebook
 
