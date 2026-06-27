@@ -1,16 +1,4 @@
-# Ignore everything by default
-*
-
-# Allow gitignore itself
-!.gitignore
-
-# Project files to publish
-!README.md
-!dataset.csv
-!demo_paper.pdf
-!model_comparison_report.txt
-!model.ipynb
-!project-explanation.md
-!requirements.txt
-!report.pdf
-!plots/
+/artifacts/
+/hf_space/
+/scripts/
+HF_DEPLOY.md
