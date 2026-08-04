@@ -6,6 +6,14 @@ Deep learning models for **hourly bike-sharing demand prediction** using the Seo
 
 **Live demo:** [Hugging Face Space — Seoul Bike Demand Forecast](https://huggingface.co/spaces/tsrohit99/seoul-bike-demand) — interactive 1-hour and 24-hour predictions (no local setup required).
 
+## Deployment demo
+
+Screen recording of the deployed app on Hugging Face Spaces:
+
+<video src="deployment_live.mov" controls width="720">
+  Your browser does not support embedded video. <a href="deployment_live.mov">Download deployment_live.mov</a>.
+</video>
+
 ---
 
 ## Overview
@@ -92,7 +100,8 @@ Detailed tables: [`model_comparison_report.txt`](model_comparison_report.txt) ·
 ├── requirements.txt               # Python dependencies
 ├── project-explanation.md         # In-depth notebook & experiment guide
 ├── model_comparison_report.txt    # Metrics tables and notes
-└── demo_paper.pdf                 # Project write-up / results summary
+├── demo_paper.pdf                 # Project write-up / results summary
+└── deployment_live.mov            # Screen recording of the HF Space demo
 ```
 
 ---
