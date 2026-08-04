@@ -10,9 +10,17 @@ Deep learning models for **hourly bike-sharing demand prediction** using the Seo
 
 Screen recording of the deployed app on Hugging Face Spaces:
 
-<video src="deployment_live.mov" controls width="720">
-  Your browser does not support embedded video. <a href="deployment_live.mov">Download deployment_live.mov</a>.
-</video>
+
+
+https://github.com/user-attachments/assets/d77ad4c2-f303-4f56-b307-42ff5710c387
+
+
+
+
+
+
+
+
 
 ---
 
@@ -100,7 +108,7 @@ Detailed tables: [`model_comparison_report.txt`](model_comparison_report.txt) ·
 ├── requirements.txt               # Python dependencies
 ├── project-explanation.md         # In-depth notebook & experiment guide
 ├── model_comparison_report.txt    # Metrics tables and notes
-├── demo_paper.pdf                 # Project write-up / results summary
+├── report.pdf                 # Project write-up / results summary
 └── deployment_live.mov            # Screen recording of the HF Space demo
 ```
 
